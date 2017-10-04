@@ -15,6 +15,13 @@ public:
     explicit ActivityDialog(QWidget *parent = 0);
     ~ActivityDialog();
 
+private slots:
+    void on_repetitiveRadioButton_clicked();
+
+    void on_signleShotRadioButton_clicked();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::ActivityDialog *ui;
 };
