@@ -14,9 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    activity.cpp
+    activity.cpp \
+    activitydialog.cpp
 
 HEADERS  += mainwindow.h \
-    activity.h
+    activity.h \
+    activitydialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    activitydialog.ui
