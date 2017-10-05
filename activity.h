@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QString>
 #include <QTimer>
+#include <popup.h>
 
 class Activity : public QObject
 {
@@ -31,6 +32,7 @@ private:
     int mSecInterval;
     QTimer *timer;
     bool isRepetitive;
+    PopUp *pop;
 
 private slots:
     void notifyMainwindow();

@@ -6,6 +6,9 @@ Activity::Activity(QString notificationContent, int mSecInterval, bool isRepetit
     this->mSecInterval = mSecInterval;
     this->isRepetitive = isRepetitive;
 
+    pop = new PopUp();
+    pop->setPopupText(notificationContent);
+
     timer = new QTimer();
     timer->setSingleShot(!isRepetitive);
     timer->setInterval(mSecInterval);
@@ -27,6 +30,12 @@ void Activity::stopActivity()
 void Activity::restartActivity()
 {
     timer->start();
+}
+
+void Activity::setNotificationContent(QString notificationConent)
+{
+    this->notificationContent = notificationConent;
+    pop->setPopupText(notificationConent);
 }
 
 void Activity::setIsRepetitive(bool isRepetitive)
@@ -52,5 +61,6 @@ bool Activity::getIsRepetitive()
 void Activity::notifyMainwindow()
 {
     emit timeout(this);
+    pop->show();
 }
 

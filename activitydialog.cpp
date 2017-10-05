@@ -19,14 +19,14 @@ void ActivityDialog::on_repetitiveRadioButton_clicked()
 {
     ui->signleShotRadioButton->setChecked(false);
     ui->timeLabel->setText("Interval(ms)");
-    ui->time->setText("");
+    //ui->time->setText("");
 }
 
 void ActivityDialog::on_signleShotRadioButton_clicked()
 {
     ui->signleShotRadioButton->setChecked(true);
     ui->timeLabel->setText("Time(ms)");
-    ui->time->setText("");
+    //ui->time->setText("");
 }
 
 void ActivityDialog::on_pushButton_clicked()

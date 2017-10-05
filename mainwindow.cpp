@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+// TODO: Show popup notification
+
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -11,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::addActivity(Activity *act)
 {
-    //TODO: connect the timeout signal with the corresponding slot
     qDebug() << "New Activity is being added";
     qDebug() << "Content: " << act->getNotificationContent();
     qDebug() << "Interval: " << act->getInterval();
@@ -38,6 +40,7 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::showNotification(Activity *act)
 {
-    //QString notificationContent = act->getNotificationContent();
-    qDebug() << "Notification should appear now";
+    QString notificationContent = act->getNotificationContent();
+    qDebug() << notificationContent;
+    //qDebug() << "Notification should appear now";
 }

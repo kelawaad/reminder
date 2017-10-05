@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     activity.cpp \
-    activitydialog.cpp
+    activitydialog.cpp \
+    popup.cpp
 
 HEADERS  += mainwindow.h \
     activity.h \
-    activitydialog.h
+    activitydialog.h \
+    popup.h
 
 FORMS    += mainwindow.ui \
     activitydialog.ui
