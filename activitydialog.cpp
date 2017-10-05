@@ -7,6 +7,7 @@ ActivityDialog::ActivityDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->repetitiveRadioButton->click();
+    this->parent = parent;
 }
 
 ActivityDialog::~ActivityDialog()
@@ -30,5 +31,13 @@ void ActivityDialog::on_signleShotRadioButton_clicked()
 
 void ActivityDialog::on_pushButton_clicked()
 {
+    QString notificationContent = ui->notificationContent->document()->toPlainText();
+    bool isRepetitive = ui->repetitiveRadioButton->isChecked();
+    int interval = ui->time->text().toInt();
+
+    Activity *act = new Activity(notificationContent, interval, isRepetitive);
+
+    emit(newActivity(act));
+
     ActivityDialog::close();
 }

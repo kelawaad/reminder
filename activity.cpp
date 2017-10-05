@@ -4,7 +4,7 @@ Activity::Activity(QString notificationContent, int mSecInterval, bool isRepetit
 {
     this->notificationContent = notificationContent;
     this->mSecInterval = mSecInterval;
-    this->isRepetitve = isRepetitive;
+    this->isRepetitive = isRepetitive;
 
     timer = new QTimer();
     timer->setSingleShot(!isRepetitive);
@@ -29,7 +29,28 @@ void Activity::restartActivity()
     timer->start();
 }
 
+void Activity::setIsRepetitive(bool isRepetitive)
+{
+    this->isRepetitive = isRepetitive;
+}
+
+QString Activity::getNotificationContent()
+{
+    return this->notificationContent;
+}
+
+int Activity::getInterval()
+{
+    return this->mSecInterval;
+}
+
+bool Activity::getIsRepetitive()
+{
+    return this->isRepetitive;
+}
+
 void Activity::notifyMainwindow()
 {
     emit timeout(this);
 }
+

@@ -9,11 +9,13 @@ MainWindow::MainWindow(QWidget *parent) :
     activities = new QList<Activity*>();
 }
 
-void MainWindow::addActivity(QString notificationContent, int mSecInterval, bool isRepetitve)
+void MainWindow::addActivity(Activity *act)
 {
     //TODO: connect the timeout signal with the corresponding slot
-
-    Activity *act = new Activity(notificationContent, mSecInterval, isRepetitve);
+    qDebug() << "New Activity is being added";
+    qDebug() << "Content: " << act->getNotificationContent();
+    qDebug() << "Interval: " << act->getInterval();
+    qDebug() << "Is Repetitive: " << act->getIsRepetitive();
     activities->append(act);
 
     connect(act, SIGNAL(timeout(Activity*)), this, SLOT(showNotification(Activity*)));
@@ -29,6 +31,7 @@ void MainWindow::on_pushButton_clicked()
     // Show a dialog to add a new activity
     qDebug() << "Button Clicked";
     dial = new ActivityDialog(this);
+    connect(dial, SIGNAL(newActivity(Activity*)), this, SLOT(addActivity(Activity*)));
     dial->setModal(true);
     dial->show();
 }
@@ -36,4 +39,5 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::showNotification(Activity *act)
 {
     //QString notificationContent = act->getNotificationContent();
+    qDebug() << "Notification should appear now";
 }

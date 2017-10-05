@@ -2,6 +2,7 @@
 #define ACTIVITYDIALOG_H
 
 #include <QDialog>
+#include <activity.h>
 
 namespace Ui {
 class ActivityDialog;
@@ -24,6 +25,10 @@ private slots:
 
 private:
     Ui::ActivityDialog *ui;
+    QWidget *parent;
+
+signals:
+    void newActivity(Activity*);
 };
 
 #endif // ACTIVITYDIALOG_H

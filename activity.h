@@ -20,15 +20,17 @@ public:
 
     void setNotificationContent(QString);
     void setInterval(int);
+    void setIsRepetitive(bool);
 
     QString getNotificationContent();
     int getInterval();
+    bool getIsRepetitive();
 
 private:
     QString notificationContent;
     int mSecInterval;
     QTimer *timer;
-    bool isRepetitve;
+    bool isRepetitive;
 
 private slots:
     void notifyMainwindow();

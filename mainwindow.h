@@ -18,7 +18,6 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    void addActivity(QString notificationContent, int mSecInterval, bool isRepetitve);
     void removeActivity(Activity);
     ~MainWindow();
 
@@ -31,6 +30,7 @@ private slots:
     //void popup();
     void on_pushButton_clicked();
     void showNotification(Activity*);
+    void addActivity(Activity*);
 };
 
 #endif // MAINWINDOW_H
