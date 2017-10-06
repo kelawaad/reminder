@@ -10,10 +10,15 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     activities = new QList<Activity*>();
+    trayIcon = new QSystemTrayIcon();
+    trayIcon->setContextMenu(NULL);
+    trayIcon->show();
+    connect(trayIcon, SIGNAL(messageClicked()), this, SLOT(notificationClicked()));
 }
 
 void MainWindow::addActivity(Activity *act)
 {
+    trayIcon->showMessage("New Activity", "New activity is added");
     qDebug() << "New Activity is being added";
     qDebug() << "Content: " << act->getNotificationContent();
     qDebug() << "Interval: " << act->getInterval();
@@ -21,6 +26,11 @@ void MainWindow::addActivity(Activity *act)
     activities->append(act);
 
     connect(act, SIGNAL(timeout(Activity*)), this, SLOT(showNotification(Activity*)));
+}
+
+void MainWindow::notificationClicked()
+{
+    qDebug() << "Ballon clicked";
 }
 
 MainWindow::~MainWindow()
@@ -42,5 +52,6 @@ void MainWindow::showNotification(Activity *act)
 {
     QString notificationContent = act->getNotificationContent();
     qDebug() << notificationContent;
+    trayIcon->showMessage("Time out", notificationContent);
     //qDebug() << "Notification should appear now";
 }
