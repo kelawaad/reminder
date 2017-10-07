@@ -8,6 +8,8 @@
 #include <QString>
 #include <QList>
 #include <QDebug>
+#include <QIcon>
+#include <QCloseEvent>
 
 namespace Ui {
 class MainWindow;
@@ -20,6 +22,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     void removeActivity(Activity);
+
     ~MainWindow();
 
 private:
@@ -27,6 +30,8 @@ private:
     QList<Activity*> *activities;
     ActivityDialog *dial;
     QSystemTrayIcon *trayIcon;
+    bool quitActionActivated;               // Whether the quit action was called from the main window or the tray icon
+    void closeEvent(QCloseEvent *event);
 
 private slots:
     //void popup();
@@ -34,6 +39,8 @@ private slots:
     void showNotification(Activity*);
     void addActivity(Activity*);
     void notificationClicked();
+    void trayIconActivated(QSystemTrayIcon::ActivationReason);
+    void myClose();
 };
 
 #endif // MAINWINDOW_H

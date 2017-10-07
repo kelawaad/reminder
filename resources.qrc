@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/notification_icon_32x31.png</file>
+    </qresource>
+</RCC>

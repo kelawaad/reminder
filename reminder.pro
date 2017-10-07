@@ -25,3 +25,6 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui \
     activitydialog.ui
+
+RESOURCES += \
+    resources.qrc
