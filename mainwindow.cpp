@@ -2,6 +2,10 @@
 #include "ui_mainwindow.h"
 
 
+// TODO: add a settings window
+// TODO: change the styling of the main window
+// TODO: allow the user to create a reminder at a certain date and time
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
