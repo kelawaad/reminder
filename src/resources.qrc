@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>../icons/notification_icon_32x31.png</file>
+        <file>../icons/plus_icon_128x128.png</file>
+        <file>../icons/plus_icon_64x64.png</file>
+        <file>../icons/plus_icon_2_64x64.png</file>
+        <file>../icons/plus_icon_3_64x64.png</file>
+    </qresource>
+</RCC>
