@@ -8,6 +8,10 @@ ActivityDialog::ActivityDialog(QWidget *parent) :
     ui->setupUi(this);
     ui->repetitiveRadioButton->click();
     ui->single_shot_label->hide();
+    ui->single_shot_date->hide();
+    ui->singleshot_time_edit->setTime(QTime::currentTime());
+    ui->single_shot_date->setDate(QDate::currentDate());
+    ui->single_shot_date->setDisplayFormat("MMM d yyyy");
     this->parent = parent;
 }
 
@@ -24,6 +28,7 @@ void ActivityDialog::on_repetitiveRadioButton_clicked()
     ui->single_shot_label->hide();
     ui->time->show();
     ui->singleshot_time_edit->hide();
+    ui->single_shot_date->hide();
 }
 
 void ActivityDialog::on_signleShotRadioButton_clicked()
@@ -32,6 +37,7 @@ void ActivityDialog::on_signleShotRadioButton_clicked()
     ui->time->hide();
     ui->single_shot_label->setText("Time");
     ui->single_shot_label->show();
+    ui->single_shot_date->show();
     ui->repetitve_label->hide();
     ui->singleshot_time_edit->show();
 }
@@ -44,19 +50,14 @@ void ActivityDialog::on_pushButton_clicked()
     if(isRepetitive)
         interval = ui->time->text().toInt();
     else {
-        QString event_time = ui->singleshot_time_edit->text();
-        QStringList lst = event_time.split(' ');
-        QStringList time = lst[0].split(':');
-
-        int hours = time[0].toInt();
-        int minutes = time[1].toInt();
-        if(lst[1] == "PM") {
-            hours += 12;
-            hours %= 24;
+        QDate selected_date = ui->single_shot_date->date();
+        QTime selected_time = ui->singleshot_time_edit->time();
+        interval = QDateTime::currentDateTime().msecsTo(QDateTime(selected_date, selected_time));
+        if(interval < 0) {
+            interval = 0;
+            qDebug() << "Cannot create an event in the past";
+            return;
         }
-
-        QTime current_time = QTime().currentTime();
-        interval = current_time.msecsTo(QTime(hours, minutes));
     }
     Activity *act = new Activity(notificationContent, interval, isRepetitive);
 

@@ -45,7 +45,7 @@
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>170</y>
+     <y>158</y>
      <width>141</width>
      <height>41</height>
     </rect>
@@ -122,17 +122,17 @@
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>210</y>
+     <y>193</y>
      <width>141</width>
-     <height>31</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
   <widget class="QLabel" name="single_shot_label">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>170</y>
+     <x>270</x>
+     <y>160</y>
      <width>51</width>
      <height>41</height>
     </rect>
@@ -146,14 +146,25 @@
     <string>Time</string>
    </property>
   </widget>
+  <widget class="QDateEdit" name="single_shot_date">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>223</y>
+     <width>141</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <zorder>repetitve_label</zorder>
   <zorder>single_shot_label</zorder>
   <zorder>label</zorder>
   <zorder>notificationContent</zorder>
-  <zorder>repetitve_label</zorder>
   <zorder>time</zorder>
   <zorder>pushButton</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>singleshot_time_edit</zorder>
+  <zorder>single_shot_date</zorder>
  </widget>
  <resources/>
  <connections/>
