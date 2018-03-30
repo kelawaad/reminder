@@ -5,6 +5,7 @@
 // TODO: add a settings and show current notifcations windows
 // TODO: allow the user to create a reminder at a certain date and time
 // TODO: add sound to the notification
+// TODO: monitor system activity and pause notification when the user is idle.
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

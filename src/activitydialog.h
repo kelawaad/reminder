@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <activity.h>
+#include <QDebug>
+#include <QDateTime>
 
 namespace Ui {
 class ActivityDialog;

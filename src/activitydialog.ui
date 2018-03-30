@@ -41,7 +41,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="timeLabel">
+  <widget class="QLabel" name="repetitve_label">
    <property name="geometry">
     <rect>
      <x>230</x>
@@ -82,7 +82,7 @@
     <string>Add</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -118,6 +118,42 @@
     </item>
    </layout>
   </widget>
+  <widget class="QTimeEdit" name="singleshot_time_edit">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>210</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="single_shot_label">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>170</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Time</string>
+   </property>
+  </widget>
+  <zorder>single_shot_label</zorder>
+  <zorder>label</zorder>
+  <zorder>notificationContent</zorder>
+  <zorder>repetitve_label</zorder>
+  <zorder>time</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>singleshot_time_edit</zorder>
  </widget>
  <resources/>
  <connections/>
