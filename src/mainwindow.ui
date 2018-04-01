@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>250</width>
-    <height>250</height>
+    <width>247</width>
+    <height>284</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,15 +18,15 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>250</width>
-    <height>250</height>
+    <width>300</width>
+    <height>300</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Notifier</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset>
     <normaloff>:/icons/icons/notification_icon_32x31.png</normaloff>:/icons/icons/notification_icon_32x31.png</iconset>
   </property>
   <property name="iconSize">
@@ -40,9 +40,9 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>50</y>
-      <width>161</width>
-      <height>131</height>
+      <y>10</y>
+      <width>151</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="font">
@@ -68,21 +68,46 @@
      </size>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>130</y>
+      <width>151</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::NoContextMenu</enum>
+    </property>
+    <property name="text">
+     <string>List</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>64</width>
+      <height>64</height>
+     </size>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>250</width>
+     <width>247</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

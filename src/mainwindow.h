@@ -3,6 +3,7 @@
 
 #include <activity.h>
 #include <activitydialog.h>
+#include <activitylist.h>
 #include <QMainWindow>
 #include <QSystemTrayIcon>
 #include <QString>
@@ -41,6 +42,7 @@ private slots:
     void notificationClicked();
     void trayIconActivated(QSystemTrayIcon::ActivationReason);
     void myClose();
+    void on_pushButton_2_clicked();
 };
 
 #endif // MAINWINDOW_H

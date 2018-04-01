@@ -5,6 +5,7 @@
 #include <QString>
 #include <QTimer>
 #include <popup.h>
+#include <QDateTime>
 
 class Activity : public QObject
 {
@@ -12,7 +13,7 @@ class Activity : public QObject
     Q_OBJECT
 
 public:
-    Activity(QString, int, bool);
+    Activity(QString, int, bool, QDateTime);
 
     void startActivity();
     void stopActivity();
@@ -22,10 +23,12 @@ public:
     void setNotificationContent(QString);
     void setInterval(int);
     void setIsRepetitive(bool);
+    void setDateTime(QDateTime);
 
     QString getNotificationContent();
     int getInterval();
     bool getIsRepetitive();
+    QString getDateTime();
 
 private:
     QString notificationContent;
@@ -33,6 +36,7 @@ private:
     QTimer *timer;
     bool isRepetitive;
     PopUp *pop;
+    QDateTime date;
 
 private slots:
     void notifyMainwindow();

@@ -16,15 +16,18 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     activity.cpp \
     activitydialog.cpp \
-    popup.cpp
+    popup.cpp \
+    activitylist.cpp
 
 HEADERS  += mainwindow.h \
     activity.h \
     activitydialog.h \
-    popup.h
+    popup.h \
+    activitylist.h
 
 FORMS    += mainwindow.ui \
-    activitydialog.ui
+    activitydialog.ui \
+    activitylist.ui
 
 RESOURCES += \
     resources.qrc \

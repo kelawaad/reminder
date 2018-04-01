@@ -1,10 +1,11 @@
 #include "activity.h"
 
-Activity::Activity(QString notificationContent, int mSecInterval, bool isRepetitive)
+Activity::Activity(QString notificationContent, int mSecInterval, bool isRepetitive, QDateTime datetime)
 {
     this->notificationContent = notificationContent;
     this->mSecInterval = mSecInterval;
     this->isRepetitive = isRepetitive;
+    this->date = datetime;
 
     pop = new PopUp();
     pop->setPopupText(notificationContent);
@@ -43,6 +44,11 @@ void Activity::setIsRepetitive(bool isRepetitive)
     this->isRepetitive = isRepetitive;
 }
 
+void Activity::setDateTime(QDateTime datetime)
+{
+    this->date = datetime;
+}
+
 QString Activity::getNotificationContent()
 {
     return this->notificationContent;
@@ -56,6 +62,11 @@ int Activity::getInterval()
 bool Activity::getIsRepetitive()
 {
     return this->isRepetitive;
+}
+
+QString Activity::getDateTime()
+{
+    return this->date.toString();
 }
 
 void Activity::notifyMainwindow()

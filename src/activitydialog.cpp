@@ -47,11 +47,14 @@ void ActivityDialog::on_pushButton_clicked()
     QString notificationContent = ui->notificationContent->document()->toPlainText();
     bool isRepetitive = ui->repetitiveRadioButton->isChecked();
     int interval;
+    QDateTime selected_date_time;
     if(isRepetitive)
         interval = ui->time->text().toInt();
     else {
         QDate selected_date = ui->single_shot_date->date();
         QTime selected_time = ui->singleshot_time_edit->time();
+        selected_time = QTime(selected_time.hour(), selected_time.minute(), 0);
+        selected_date_time = QDateTime(selected_date, selected_time);
         interval = QDateTime::currentDateTime().msecsTo(QDateTime(selected_date, selected_time));
         if(interval < 0) {
             interval = 0;
@@ -59,7 +62,7 @@ void ActivityDialog::on_pushButton_clicked()
             return;
         }
     }
-    Activity *act = new Activity(notificationContent, interval, isRepetitive);
+    Activity *act = new Activity(notificationContent, interval, isRepetitive, selected_date_time);
 
     emit(newActivity(act));
 

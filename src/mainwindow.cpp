@@ -99,7 +99,6 @@ void MainWindow::showNotification(Activity *act)
     QString notificationContent = act->getNotificationContent();
     qDebug() << notificationContent;
     trayIcon->showMessage("Time out", notificationContent);
-    //qDebug() << "Notification should appear now";
 }
 
 
@@ -110,4 +109,11 @@ void MainWindow::closeEvent(QCloseEvent *event)
         event->ignore();
         this->hide();
     }
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    ActivityList *dial = new ActivityList(this, activities);
+    dial->setModal(true);
+    dial->show();
 }
