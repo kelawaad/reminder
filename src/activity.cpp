@@ -66,12 +66,15 @@ bool Activity::getIsRepetitive()
 
 QString Activity::getDateTime()
 {
-    return this->date.toString();
+    return this->date.toString(Qt::SystemLocaleShortDate);
 }
 
 void Activity::notifyMainwindow()
 {
-    //emit timeout(this);
     pop->show();
+    if(!isRepetitive) {
+        timer->stop();
+        emit deleteActivity(this);
+    }
 }
 

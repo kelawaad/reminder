@@ -43,6 +43,7 @@ private slots:
     void trayIconActivated(QSystemTrayIcon::ActivationReason);
     void myClose();
     void on_pushButton_2_clicked();
+    void deleteActivity(Activity*);
 };
 
 #endif // MAINWINDOW_H

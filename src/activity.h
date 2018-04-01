@@ -40,8 +40,8 @@ private:
 
 private slots:
     void notifyMainwindow();
-
 signals:
+    void deleteActivity(Activity*);
     void timeout(Activity*);
 };
 

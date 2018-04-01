@@ -61,6 +61,7 @@ void MainWindow::addActivity(Activity *act)
     activities->append(act);
 
     connect(act, SIGNAL(timeout(Activity*)), this, SLOT(showNotification(Activity*)));
+    connect(act, SIGNAL(deleteActivity(Activity*)), this, SLOT(deleteActivity(Activity*)));
 }
 
 void MainWindow::notificationClicked()
@@ -116,4 +117,11 @@ void MainWindow::on_pushButton_2_clicked()
     ActivityList *dial = new ActivityList(this, activities);
     dial->setModal(true);
     dial->show();
+}
+
+void MainWindow::deleteActivity(Activity *act)
+{
+    int index = activities->indexOf(act);
+    activities->removeAt(index);
+    act->deleteLater();
 }
